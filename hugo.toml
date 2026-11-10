@@ -1,0 +1,20 @@
+baseURL = 'https://example.org/'
+defaultContentLanguage = 'en'
+disableKinds = ["taxonomy", "term"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[languages]
+  [languages.en]
+    locale = 'en-US'
+    label = 'English'
+    title = 'The Reading Circle'
+
+[params]
+  title_italic = 'Circle'
+  tagline = 'A Hugo theme for book clubs'
+  description = 'A demo site for the Hugo Book Club theme.'
+  manifesto = 'We meet <span>once a month</span> to talk about books.'
+  contact_email = 'hello@example.org'
+  archive_empty_text = 'Books we have already discussed will appear here.'

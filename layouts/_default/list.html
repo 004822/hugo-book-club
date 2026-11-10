@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<header class="section-header">
+  <h1 class="section-title">{{ .Title }}</h1>
+</header>
+
+<ul class="archive-catalog">
+  {{ range .Pages }}
+    <li class="catalog-row">
+      <div class="catalog-main">
+        <a href="{{ .RelPermalink }}" class="catalog-title">{{ .Title }}</a>
+      </div>
+    </li>
+  {{ end }}
+</ul>
+{{ end }}

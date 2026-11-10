@@ -1,0 +1,88 @@
+{{ define "main" }}
+
+{{ $allBooks := sort (where .Site.RegularPages "Section" "books") "Date" "desc" }}
+{{ $currentBook := false }}
+{{ if gt (len $allBooks) 0 }}
+  {{ $currentBook = index $allBooks 0 }}
+{{ end }}
+
+<article class="spotlight-book-layout">
+  <div class="spotlight-media-col">
+    {{ if .Params.cover }}
+      <div class="spotlight-cover-wrap">
+        <img src="{{ .Params.cover | relURL }}" alt="{{ i18n "cover" }}: {{ .Title }}" class="spotlight-cover-img" width="260" height="390" loading="eager" decoding="async">
+      </div>
+    {{ end }}
+
+    {{ if $currentBook }}
+      {{ if eq $.RelPermalink $currentBook.RelPermalink }}
+        {{ partial "register-button.html" . }}
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <div class="spotlight-details">
+    <div class="book-header-group">
+      {{ with .Params.edition }}
+        <div class="spotlight-edition">{{ . }}</div>
+      {{ end }}
+      <h1 class="spotlight-title">{{ .Title }}</h1>
+      {{ with .Params.author }}
+        <div class="spotlight-author">{{ . }}</div>
+      {{ end }}
+    </div>
+
+    {{ with .Params.quote }}
+      <blockquote class="spotlight-quote">
+        {{ i18n "quote_open" }}{{ . }}{{ i18n "quote_close" }}
+      </blockquote>
+    {{ end }}
+
+    <div class="meeting-simple-info">
+      {{ with .Params.meeting_date }}
+        <div class="info-row">
+          <span class="info-label">{{ i18n "meeting" }}:</span>
+          <span class="info-value">{{ . }}</span>
+        </div>
+      {{ end }}
+      {{ with .Params.meeting_location }}
+        <div class="info-row">
+          <span class="info-label">{{ i18n "location" }}:</span>
+          <span class="info-value">{{ . }}</span>
+        </div>
+      {{ end }}
+      {{ with .Params.pages }}
+        <div class="info-row">
+          <span class="info-label">{{ i18n "pages" }}:</span>
+          <span class="info-value">{{ . }}</span>
+        </div>
+      {{ end }}
+    </div>
+
+    {{ with .Content }}
+      <div class="spotlight-prose">
+        {{ . }}
+      </div>
+    {{ end }}
+
+    {{ with .Params.recap }}
+      <section class="book-recap" aria-label="{{ i18n "meeting_note" }}">
+        <span class="book-recap-label">{{ i18n "meeting_note" }}</span>
+        <div class="book-recap-text">{{ . | markdownify }}</div>
+      </section>
+    {{ end }}
+
+    {{ with .Params.discussion_topics }}
+      <div class="spotlight-topics">
+        <h4>{{ i18n "discussion_topics" }}</h4>
+        <ul>
+          {{ range . }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </div>
+</article>
+
+{{ end }}

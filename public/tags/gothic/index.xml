@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Gothic on </title>
+		<link>http://localhost:1313/tags/gothic/</link>
+		<description>Recent content in Gothic on </description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 01 Sep 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/gothic/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Frankenstein</title>
+				<link>http://localhost:1313/books/2026/frankenstein/</link>
+				<pubDate>Tue, 01 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/books/2026/frankenstein/</guid>
+				<description>&lt;p&gt;Victor Frankenstein creates life, then abandons it. Shelley&amp;rsquo;s novel follows the consequences of that refusal of responsibility, told through letters, confessions and a creature who learns to speak for himself.&lt;/p&gt;&#xA;&lt;p&gt;This is sample content for the theme demo. Replace it with your own description or reading notes.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

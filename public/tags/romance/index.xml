@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Romance on </title>
+		<link>http://localhost:1313/tags/romance/</link>
+		<description>Recent content in Romance on </description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 01 Oct 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/romance/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Pride and Prejudice</title>
+				<link>http://localhost:1313/books/2026/pride-and-prejudice/</link>
+				<pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/books/2026/pride-and-prejudice/</guid>
+				<description>&lt;p&gt;Elizabeth Bennet and Mr Darcy begin with the worst possible impression of one another. What follows is a comedy of manners, money and the slow correction of first judgements.&lt;/p&gt;&#xA;&lt;p&gt;This is sample content for the theme demo. Replace it with your own description or reading notes.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

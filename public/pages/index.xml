@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Pages on The Reading Circle</title>
+		<link>http://localhost:1313/pages/</link>
+		<description>Recent content in Pages on The Reading Circle</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<atom:link href="http://localhost:1313/pages/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>About the club</title>
+				<link>http://localhost:1313/pages/about/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/pages/about/</guid>
+				<description>&lt;p&gt;This is an example page for the theme demo. Use it to introduce your club, explain how meetings work and say what kind of readers you are looking for.&lt;/p&gt;&#xA;&lt;p&gt;The navigation entry comes from the &lt;code&gt;nav_title&lt;/code&gt; field. The order is controlled by &lt;code&gt;weight&lt;/code&gt; — lower numbers appear first.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Join us</title>
+				<link>http://localhost:1313/pages/join/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/pages/join/</guid>
+				<description>&lt;p&gt;This is an example page for the theme demo. Add your contact details, meeting information or a short invitation here.&lt;/p&gt;&#xA;&lt;p&gt;Set &lt;code&gt;highlight: true&lt;/code&gt; in the front matter to give the navigation link a border.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

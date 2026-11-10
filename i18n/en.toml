@@ -1,0 +1,53 @@
+[skip_to_content]
+other = "Skip to content"
+
+[main_navigation]
+other = "Main navigation"
+
+[home]
+other = "Home"
+
+[cover]
+other = "Cover"
+
+[quote_open]
+other = "“"
+
+[quote_close]
+other = "”"
+
+[currently_reading]
+other = "Currently reading:"
+
+[past_meetings]
+other = "Previous meetings:"
+
+[all_meetings]
+other = "All club meetings:"
+
+[meeting]
+other = "Meeting"
+
+[location]
+other = "Location"
+
+[pages]
+other = "Pages"
+
+[meeting_note]
+other = "Meeting notes"
+
+[discussion_topics]
+other = "Topics discussed at the meeting:"
+
+[archive_empty]
+other = "We are just getting started. Books we have already discussed will appear here."
+
+[register]
+other = "Join the meeting"
+
+[register_email_subject]
+other = "Book club meeting sign-up"
+
+[register_email_body]
+other = "Hi, my name is _____ and I would like to join the next meeting. I would also like to be added to the mailing list so I receive information about upcoming meetings in advance."

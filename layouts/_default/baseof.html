@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.Language.Locale }}{{ . }}{{ else }}{{ .Site.Language.Lang }}{{ end }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+
+  {{ with .Site.Params.description }}
+  <meta name="description" content="{{ . }}">
+  {{ end }}
+
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
+  {{ with .Site.Params.webmanifest }}
+  <link rel="manifest" href="{{ . | relURL }}">
+  {{ end }}
+
+  {{/* Open Graph / Facebook / Mastodon */}}
+  {{ $ogImage := .Params.cover | default .Site.Params.default_og_image | default "images/og-default.jpg" }}
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:image" content="{{ $ogImage | absURL }}">
+  {{ if not .Params.cover }}
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+  {{ end }}
+
+  {{ $locale := .Site.Language.Locale | default "pl" | replaceRE "-" "_" }}
+  {{ if eq $locale "pl" }}{{ $locale = "pl_PL" }}{{ end }}
+  <meta property="og:locale" content="{{ $locale }}">
+
+  {{/* Twitter / X */}}
+  <meta name="twitter:card" content="{{ if .Params.cover }}summary_large_image{{ else }}summary{{ end }}">
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}">
+  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  <meta name="twitter:image" content="{{ $ogImage | absURL }}">
+
+  {{/* Preload kluczowych fontów (eliminacja FOIT / opóźnienia pierwszego renderu) */}}
+  <link rel="preload" href="{{ "fonts/instrument-serif-v5-latin_latin-ext-italic.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ "fonts/instrument-serif-v5-latin_latin-ext-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ "fonts/space-mono-v17-latin_latin-ext-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+
+  {{/* Stylesheet */}}
+  {{ with resources.Get "css/style.css" }}
+    {{ $style := . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ else }}
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  {{ end }}
+
+  {{ block "head" . }}{{ end }}
+</head>
+<body>
+  <a href="#main" class="skip-link">{{ i18n "skip_to_content" }}</a>
+  <div class="container">
+    <header class="site-header">
+      <div class="header-simple">
+        {{ $siteTitle := .Site.Title }}
+        {{ with .Site.Params.title_italic }}
+          {{ $siteTitle = replace $siteTitle . (printf "<em>%s</em>" .) }}
+        {{ end }}
+        {{ if .IsHome }}
+          <h1 class="site-title">
+            <a href="{{ .Site.Home.RelPermalink }}">{{ $siteTitle | safeHTML }}</a>
+          </h1>
+        {{ else }}
+          <p class="site-title">
+            <a href="{{ .Site.Home.RelPermalink }}">{{ $siteTitle | safeHTML }}</a>
+          </p>
+        {{ end }}
+        {{ with .Site.Params.tagline }}
+        <div class="site-sub">{{ . }}</div>
+        {{ end }}
+      </div>
+
+      {{ with .Site.Params.manifesto }}
+        <div class="header-lead-grid">
+          <div class="header-left">
+            <p class="header-manifesto">{{ . | safeHTML }}</p>
+          </div>
+        </div>
+      {{ end }}
+
+      {{/* MENU PODSTRON */}}
+      <nav class="site-nav" aria-label="{{ i18n "main_navigation" }}">
+        <a href="{{ .Site.Home.RelPermalink }}" class="nav-link{{ if .IsHome }} is-active{{ end }}"{{ if .IsHome }} aria-current="page"{{ end }}>{{ i18n "home" }}</a>
+        {{ range sort (where .Site.RegularPages "Section" "pages") "Weight" }}
+          <a href="{{ .RelPermalink }}" class="nav-link{{ if .Params.highlight }} nav-link--highlight{{ end }}{{ if eq $.RelPermalink .RelPermalink }} is-active{{ end }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Params.nav_title | default .Params.menu_title | default .Title }}</a>
+        {{ end }}
+
+        {{/* Social icons */}}
+        <span class="nav-social">
+          {{ with .Site.Params.instagram_url }}
+          <a href="{{ . }}" class="nav-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="{{ "icons/instagram.svg" | relURL }}" alt="Instagram" width="20" height="20">
+          </a>
+          {{ end }}
+          {{ with .Site.Params.mastodon_url }}
+          <a href="{{ . }}" class="nav-icon" target="_blank" rel="me noopener noreferrer" aria-label="Mastodon">
+            <img src="{{ "icons/mastodon.svg" | relURL }}" alt="Mastodon" width="20" height="20">
+          </a>
+          {{ end }}
+        </span>
+      </nav>
+    </header>
+
+    <main id="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+</body>
+</html>

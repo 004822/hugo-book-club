@@ -1,0 +1,53 @@
+[skip_to_content]
+other = "Przejdź do treści"
+
+[main_navigation]
+other = "Główna nawigacja"
+
+[home]
+other = "Strona główna"
+
+[cover]
+other = "Okładka"
+
+[quote_open]
+other = "„"
+
+[quote_close]
+other = "”"
+
+[currently_reading]
+other = "Aktualnie czytamy:"
+
+[past_meetings]
+other = "Poprzednie spotkania:"
+
+[all_meetings]
+other = "Wszystkie spotkania klubu:"
+
+[meeting]
+other = "Spotkanie"
+
+[location]
+other = "Miejsce"
+
+[pages]
+other = "Stron"
+
+[meeting_note]
+other = "Notatka po spotkaniu"
+
+[discussion_topics]
+other = "Wątki poruszane podczas spotkania:"
+
+[archive_empty]
+other = "Dopiero zaczynamy. Tu będą widoczne książki, które już omówiliśmy."
+
+[register]
+other = "Zapisz się na spotkanie"
+
+[register_email_subject]
+other = "Zapis na spotkanie klubu książki"
+
+[register_email_body]
+other = "Cześć, nazywam się _____ i chcę dołączyć do najbliższego spotkania. Przy okazji poproszę o dopisanie mnie do listy mailingowej, dzięki czemu będę otrzymywać informacje o kolejnych spotkaniach wcześniej."

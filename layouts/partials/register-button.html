@@ -1,0 +1,18 @@
+{{/* Przycisk rejestracji na spotkanie.
+     Renderowany wyłącznie dla aktualnej lektury — decyduje o tym szablon strony. */}}
+
+{{ $mailSubject := i18n "register_email_subject" }}
+{{ $mailBody := i18n "register_email_body" }}
+
+{{/* urlquery koduje spacje jako "+" (application/x-www-form-urlencoded),
+     ale klienty poczty oczekują "%20" w mailto:. Zamieniamy z powrotem. */}}
+{{ $mailTo := printf "mailto:%s?subject=%s&body=%s"
+    ($.Site.Params.contact_email | default "")
+    ($mailSubject | urlquery | replaceRE `\+` "%20")
+    ($mailBody | urlquery | replaceRE `\+` "%20")
+}}
+
+<a href="{{ $mailTo }}" class="spotlight-register-btn">
+  <img src="{{ "icons/email.svg" | relURL }}" alt="" class="spotlight-register-btn-icon" width="18" height="18">
+  {{ i18n "register" }}
+</a>

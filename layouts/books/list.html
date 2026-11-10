@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<header class="section-header">
+  <h1 class="section-title">{{ i18n "all_meetings" }}</h1>
+</header>
+
+{{ $books := sort .Pages "Date" "desc" }}
+
+<ul class="archive-catalog">
+  {{ range $books }}
+    <li class="catalog-row">
+      {{ if .Params.cover }}
+        <div class="catalog-thumb-wrap">
+          <a href="{{ .RelPermalink }}">
+            <img src="{{ .Params.cover | relURL }}" alt="{{ i18n "cover" }}: {{ .Title }}" class="catalog-thumb-img" width="170" height="255" loading="lazy" decoding="async">
+          </a>
+        </div>
+      {{ end }}
+      <div class="catalog-main">
+        <span class="catalog-edition">{{ with .Params.edition }}{{ . }}{{ else }}{{ .Date.Format "01.2006" }}{{ end }}</span>
+        <a href="{{ .RelPermalink }}" class="catalog-title">{{ .Title }}</a>
+        <span class="catalog-author">{{ .Params.author }}</span>
+        {{ with .Params.recap }}
+          <div class="catalog-recap">
+            <span class="catalog-recap-label">{{ i18n "meeting_note" }}</span>
+            <div class="catalog-recap-text">{{ . | markdownify }}</div>
+          </div>
+        {{ end }}
+      </div>
+    </li>
+  {{ end }}
+</ul>
+{{ end }}

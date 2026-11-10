@@ -1,13 +1,17 @@
 name = "Hugo Book Club"
 license = "MIT"
 licenselink = "https://github.com/004822/hugo-book-club/blob/main/LICENSE"
-description = "Minimalistyczny, typograficzny motyw Hugo dla klubu książki, z tłumaczeniami PL/EN."
+description = "Clean Hugo theme for book clubs."
 homepage = "https://github.com/004822/hugo-book-club"
-demosite = ""
-tags = ["books", "blog", "minimal", "polish", "english", "responsive", "typography", "i18n"]
-features = ["Book club", "Reading archive", "Meeting notes", "Responsive", "Customizable colors", "Polish and English translations"]
-min_version = "0.146.0"
+demosite = "https://offline.waw.pl"
+tags = ["books", "blog", "minimal", "english", "responsive", "typography", "i18n"]
+features = ["Book club", "Reading archive", "Meeting notes", "Responsive", "Customizable colors"]
+
+[module]
+  [module.hugoVersion]
+  	extended = true
+	min_version = "0.146.0"
 
 [author]
-  name = "klub książki offline"
+  name = "004822"
   homepage = "https://004822.xyz/"

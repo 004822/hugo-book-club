@@ -26,7 +26,7 @@ other = "Poprzednie spotkania:"
 other = "Wszystkie spotkania klubu:"
 
 [meeting]
-other = "Spotkanie"
+other = "Data spotkania"
 
 [location]
 other = "Miejsce"

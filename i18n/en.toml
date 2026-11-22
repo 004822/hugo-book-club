@@ -26,7 +26,7 @@ other = "Previous meetings:"
 other = "All club meetings:"
 
 [meeting]
-other = "Meeting"
+other = "Date of meeting"
 
 [location]
 other = "Location"
